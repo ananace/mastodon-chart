@@ -11,9 +11,6 @@ data:
   {{- else }}
   DB_HOST: {{ .Values.postgresql.postgresqlHostname }}
   DB_PORT: {{ .Values.postgresql.postgresqlPort | default "5432" | quote }}
-  {{- if .Values.postgresql.postgresqlReplicaHostname }}
-  REPLICA_DB_HOST: {{ .Values.postgresql.postgresqlReplicaHostname }}
-  {{- end }}
   {{- end }}
   DB_NAME: {{ .Values.postgresql.auth.database }}
   DB_POOL: {{ include "mastodon.maxDbPool" . }}
